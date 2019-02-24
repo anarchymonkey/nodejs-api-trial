@@ -72,6 +72,17 @@ app.get('/api/request/search',(req,res)=>{
     });
 });
 
+request("https://api-trial.herokuapp.com/api/request/search?name=Animesh",(err,res,body)=>{
+
+    if(err){
+        console.log(err)
+    }
+
+    console.log("This is the req part");
+    let parsedJson = JSON.parse(body);
+    console.log(parsedJson);
+
+});
 
 app.listen(port,(err)=>{
     if(err){
