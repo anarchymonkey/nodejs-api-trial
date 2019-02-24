@@ -1,0 +1,30 @@
+{
+  "name": "nodejs-api-trial",
+  "version": "1.0.0",
+  "description": "a simple api application",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anarchymonkey/nodejs-api-trial.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "api"
+  ],
+  "author": "Aniket Batabyal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anarchymonkey/nodejs-api-trial/issues"
+  },
+  "homepage": "https://github.com/anarchymonkey/nodejs-api-trial#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.15",
+    "request": "^2.88.0"
+  }
+}
