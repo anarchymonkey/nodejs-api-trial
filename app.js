@@ -36,10 +36,10 @@ app.get('/',(req,res)=>{
 app.post('/api/request/search',(req,res)=>{
     
     let bruteData = {
-        name : "Nidhu",
-        roll : "1610991108",
-        phone : "6280953543",
-        address : "137,Sector 8 , Panchkula, Haryana"
+        name : req.query.name,
+        roll : req.query.roll,
+        phone : req.query.phone,
+        address : req.query.address
     }
 
     api_model.create(bruteData,(err,inserted)=>{
@@ -53,6 +53,7 @@ app.post('/api/request/search',(req,res)=>{
 });
 app.get('/api/request/search',(req,res)=>{
     
+    console.log(req.query);
     let getQuery = {name : req.query.name};
 
 
@@ -65,14 +66,14 @@ app.get('/api/request/search',(req,res)=>{
 
         let JSONstringify = JSON.stringify(found);
         let parseJson = JSON.parse(JSONstringify);
-        return res.send(parseJson[0]);
+        return res.send(parseJson)
 
 
     });
 });
 
 
-app.listen(port,'127.0.0.1',(err)=>{
+app.listen(port,(err)=>{
     if(err){
         console.error(err.message);
     }
