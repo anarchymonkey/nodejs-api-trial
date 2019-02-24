@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-mongoose.connect('mongodb://localhost/api_trial',{useNewUrlParser : true},(err)=>{
+mongoose.connect('mongodb://anarchy:Aniket1996@ds349045.mlab.com:49045/api-trial',{useNewUrlParser : true},(err)=>{
 
     if(err){
         console.error(err.message);
