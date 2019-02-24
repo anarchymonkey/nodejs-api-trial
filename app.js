@@ -3,6 +3,8 @@ const express = require("express"),
       mongoose = require('mongoose'),
       request = require("request")
 
+let port = 3000 || PROCESS.ENV.PORT;
+
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -10,7 +12,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 mongoose.connect('mongodb://localhost/api_trial',{useNewUrlParser : true},(err)=>{
 
     if(err){
-        console.error(err.message("Sorry there has been a error"));
+        console.error(err.message);
     }
     console.log("Mongodb Connected")
 });
@@ -43,7 +45,7 @@ app.post('/api/request/search',(req,res)=>{
     api_model.create(bruteData,(err,inserted)=>{
 
         if(err){
-            console.error(err.message("The data hasnt been inserted"));
+            console.error(err.message);
         }
 
         return res.send(inserted);
@@ -58,7 +60,7 @@ app.get('/api/request/search',(req,res)=>{
     api_model.find(getQuery,(err,found)=>{
 
         if(err){
-            console.error(err.message("dayum"));
+            console.error(err.message);
         }
 
         let JSONstringify = JSON.stringify(found);
@@ -70,11 +72,11 @@ app.get('/api/request/search',(req,res)=>{
 });
 
 
-app.listen(3000,'127.0.0.1',(err,_port)=>{
+app.listen(port,'127.0.0.1',(err)=>{
     if(err){
-        console.error(err.message("port hasnt started yet"));
+        console.error(err.message);
     }
 
-    console.log(`Server started on ${_port}`);
+    console.log(`Server started on ${port}`);
 });
 
