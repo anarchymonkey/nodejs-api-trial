@@ -3,7 +3,7 @@ const express = require("express"),
       mongoose = require('mongoose'),
       request = require("request")
 
-let port = 3000 || PROCESS.ENV.PORT;
+let port = process.env.PORT || 3000;
 
 const app = express();
 app.use(bodyParser.json());
